@@ -7,6 +7,8 @@ class Dustbin {
         this.dustbinHeight = 100;
         this.wallthickness = 20;
         this.angle = 0;
+        this.image = loadImage("./dustbingreen.png");
+        
 
         this.leftBody = Bodies.rectangle(this.x-this.dustbinWidth/2,this.y-this.dustbinHeight/2,this.wallthickness,this.dustbinHeight,{isStatic:true});
         Matter.Body.setAngle(this.leftBody,this.angle);
@@ -26,31 +28,30 @@ class Dustbin {
         var posB = this.bottomBody.position;
         push();
         translate(posL.x,posL.y);
-        rectMode(CENTER);
         angleMode(RADIANS);
         fill("purple");
         stroke("purple");
         rotate(this.angle);
-        rect(0,0,this.wallthickness,this.dustbinHeight);
+        //rect(0,0,this.wallthickness,this.dustbinHeight);
         pop();
 
         push();
         translate(posR.x,posR.y);
-        rectMode(CENTER);
         angleMode(RADIANS);
         fill("purple");
         stroke("purple");
         rotate(-1*this.angle);
-        rect(0,0,this.wallthickness,this.dustbinHeight);
+        //rect(0,0,this.wallthickness,this.dustbinHeight);
         pop();
 
         push();
         translate(posB.x,posB.y);
-        rectMode(CENTER);
+        imageMode(CENTER);
+        image(this.image,0,-this.dustbinHeight/2,this.dustbinWidth,this.dustbinHeight);
         angleMode(RADIANS);
         fill("purple");
         stroke("purple");
-        rect(0,0,this.dustbinWidth,this.wallthickness);
+        //rect(0,0,this.dustbinWidth,this.wallthickness);
         pop();
     }
 

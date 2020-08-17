@@ -21,8 +21,8 @@ function setup() {
 
 	//Create the Bodies Here.
 	 ground = new Ground(600,370,1200,20);
-	 paper = new Paper(200,150,20);
-	 dustbin = new Dustbin(1000,350);
+	 paper = new Paper(200,150,70);
+	 dustbin = new Dustbin(1000,360);
 
 
   
@@ -30,18 +30,17 @@ function setup() {
 
 
 function draw() {
-  background(0);
+  background(180);
   Engine.update(engine);
-  ground.display();
   paper.display();
+  ground.display();
   dustbin.display();
-  
  
 }
 
 function keyPressed(){
 	if (keyCode===UP_ARROW){
-		Matter.Body.applyForce(paper.body,paper.body.position,{x:75,y:-75});
+		Matter.Body.applyForce(paper.body,paper.body.position,{x:75,y:-80});
 	}
 }
 
